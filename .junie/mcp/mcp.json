@@ -1,0 +1,11 @@
+{
+    "mcpServers": {
+        "laravel-boost": {
+            "command": "D:\\xampp\\php\\php.exe",
+            "args": [
+                "D:\\laravel-apps\\todo-list\\artisan",
+                "boost:mcp"
+            ]
+        }
+    }
+}
