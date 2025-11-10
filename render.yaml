@@ -22,13 +22,13 @@ services:
       - key: APP_KEY
         generateValue: true
       - key: APP_DEBUG
-        value: false
+        value: true
       - key: APP_URL
         value: https://todo-list.onrender.com
       - key: LOG_CHANNEL
         value: stderr
       - key: LOG_LEVEL
-        value: error
+        value: debug
       - key: DB_CONNECTION
         value: pgsql
       - key: DB_HOST
