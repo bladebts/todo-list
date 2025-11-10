@@ -19,7 +19,7 @@ echo "Testing database connection..."
 php artisan db:show || echo "Database connection failed - check credentials"
 
 echo "Publishing Livewire assets..."
-php artisan livewire:publish --force
+php artisan livewire:publish --assets
 
 echo "Running migrations..."
 php artisan migrate --force --verbose
