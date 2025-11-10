@@ -21,16 +21,15 @@ php artisan livewire:publish --assets
 echo "Running migrations..."
 php artisan migrate --force
 
-echo "Clearing all caches..."
-php artisan cache:clear
-php artisan config:clear
-php artisan route:clear
-php artisan view:clear
+echo "Clearing all caches and bootstrap..."
+rm -rf /var/www/html/bootstrap/cache/*.php
+php artisan optimize:clear
 
-echo "Optimizing application..."
+echo "Rebuilding caches..."
 php artisan config:cache
 php artisan route:cache
 php artisan view:cache
+php artisan event:cache
 
 echo "Starting services..."
 exec /start.sh
