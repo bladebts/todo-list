@@ -18,6 +18,9 @@ sleep 10
 echo "Testing database connection..."
 php artisan db:show || echo "Database connection failed - check credentials"
 
+echo "Publishing Livewire assets..."
+php artisan livewire:publish --force
+
 echo "Running migrations..."
 php artisan migrate --force --verbose
 
