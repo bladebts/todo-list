@@ -22,10 +22,7 @@ echo "Running migrations..."
 php artisan migrate --force --verbose
 
 echo "Clearing all caches..."
-php artisan cache:clear
-php artisan config:clear
-php artisan route:clear
-php artisan view:clear
+php artisan optimize:clear
 
 echo "Caching config..."
 php artisan config:cache
@@ -35,6 +32,9 @@ php artisan route:cache
 
 echo "Caching views..."
 php artisan view:cache
+
+echo "Optimizing..."
+php artisan optimize
 
 echo "Listing environment variables (sanitized)..."
 echo "DB_CONNECTION: $DB_CONNECTION"

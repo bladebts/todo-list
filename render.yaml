@@ -24,7 +24,11 @@ services:
       - key: APP_DEBUG
         value: false
       - key: APP_URL
-        value: https://todo-list.onrender.com
+        value: https://todo-list-o5uu.onrender.com
+      - key: ASSET_URL
+        value: https://todo-list-o5uu.onrender.com
+      - key: TRUSTED_PROXIES
+        value: "*"
       - key: LOG_CHANNEL
         value: stderr
       - key: LOG_LEVEL
