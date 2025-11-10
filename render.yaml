@@ -20,15 +20,15 @@ services:
       - key: APP_ENV
         value: production
       - key: APP_KEY
-        generateValue: true
+        value: base64:WY+k0CGMWBAGe8u5rfi40xZo7OW7D1TX7jd7Li+SKvc=
       - key: APP_DEBUG
-        value: true
+        value: false
       - key: APP_URL
         value: https://todo-list.onrender.com
       - key: LOG_CHANNEL
         value: stderr
       - key: LOG_LEVEL
-        value: debug
+        value: error
       - key: DB_CONNECTION
         value: pgsql
       - key: DB_HOST
