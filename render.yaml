@@ -1,3 +1,10 @@
+databases:
+  - name: todo-list-db
+    databaseName: todolist
+    user: todolist
+    plan: free
+    region: frankfurt
+
 services:
   - type: web
     name: todo-list
@@ -23,15 +30,35 @@ services:
       - key: LOG_LEVEL
         value: error
       - key: DB_CONNECTION
-        value: sqlite
+        value: pgsql
+      - key: DB_HOST
+        fromDatabase:
+          name: todo-list-db
+          property: host
+      - key: DB_PORT
+        fromDatabase:
+          name: todo-list-db
+          property: port
       - key: DB_DATABASE
-        value: /var/www/html/database/database.sqlite
+        fromDatabase:
+          name: todo-list-db
+          property: database
+      - key: DB_USERNAME
+        fromDatabase:
+          name: todo-list-db
+          property: user
+      - key: DB_PASSWORD
+        fromDatabase:
+          name: todo-list-db
+          property: password
       - key: SESSION_DRIVER
         value: database
+      - key: SESSION_LIFETIME
+        value: 120
       - key: CACHE_STORE
         value: database
       - key: QUEUE_CONNECTION
-        value: database
+        value: sync
       - key: BROADCAST_CONNECTION
         value: log
       - key: FILESYSTEM_DISK

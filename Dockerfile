@@ -24,6 +24,10 @@ FROM richarvey/nginx-php-fpm:3.1.6
 
 WORKDIR /var/www/html
 
+# Install PostgreSQL extension
+RUN apk add --no-cache postgresql-dev && \
+    docker-php-ext-install pdo_pgsql pgsql
+
 # Copy application files
 COPY . .
 
@@ -41,8 +45,6 @@ ENV REAL_IP_HEADER 1
 ENV APP_ENV production
 ENV APP_DEBUG false
 ENV LOG_CHANNEL stderr
-ENV DB_CONNECTION sqlite
-ENV DB_DATABASE /var/www/html/database/database.sqlite
 
 # Allow composer to run as root
 ENV COMPOSER_ALLOW_SUPERUSER 1

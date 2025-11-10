@@ -4,13 +4,16 @@ set -e
 echo "Running composer install..."
 composer install --no-dev --working-dir=/var/www/html --optimize-autoloader --no-interaction
 
-echo "Creating database if not exists..."
-touch /var/www/html/database/database.sqlite
+echo "Setting up storage directories..."
+mkdir -p /var/www/html/storage/framework/{sessions,views,cache}
+mkdir -p /var/www/html/storage/logs
 
 echo "Setting permissions..."
-chown -R nginx:nginx /var/www/html/storage /var/www/html/bootstrap/cache /var/www/html/database
+chown -R nginx:nginx /var/www/html/storage /var/www/html/bootstrap/cache
 chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache
-chmod 664 /var/www/html/database/database.sqlite
+
+echo "Waiting for database to be ready..."
+sleep 5
 
 echo "Running migrations..."
 php artisan migrate --force
