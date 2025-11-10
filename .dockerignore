@@ -1,0 +1,31 @@
+# Dependencies
+vendor/
+node_modules/
+
+# Development files
+.git/
+.github/
+.idea/
+.junie/
+*.log
+.env
+.env.backup
+.env.production
+
+# Testing
+tests/
+phpunit.xml
+.phpunit.result.cache
+
+# Build artifacts
+public/hot
+public/storage
+storage/*.key
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Documentation (optional - uncomment if you don't want docs in image)
+# *.md
+# README.Docker.md
