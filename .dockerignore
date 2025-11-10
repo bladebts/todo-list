@@ -26,6 +26,10 @@ storage/*.key
 .DS_Store
 Thumbs.db
 
+# Local files
+identifier.sqlite
+compose.yaml
+scripts/
+
 # Documentation (optional - uncomment if you don't want docs in image)
 # *.md
-# README.Docker.md

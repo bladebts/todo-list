@@ -13,38 +13,16 @@ chown -R nginx:nginx /var/www/html/storage /var/www/html/bootstrap/cache
 chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache
 
 echo "Waiting for database to be ready..."
-sleep 10
-
-echo "Testing database connection..."
-php artisan db:show || echo "Database connection failed - check credentials"
+sleep 5
 
 echo "Publishing Livewire assets..."
 php artisan livewire:publish --assets
 
 echo "Running migrations..."
-php artisan migrate --force --verbose
+php artisan migrate --force
 
-echo "Clearing all caches..."
-php artisan optimize:clear
-
-echo "Caching config..."
-php artisan config:cache
-
-echo "Caching routes..."
-php artisan route:cache
-
-echo "Caching views..."
-php artisan view:cache
-
-echo "Optimizing..."
+echo "Optimizing application..."
 php artisan optimize
-
-echo "Listing environment variables (sanitized)..."
-echo "DB_CONNECTION: $DB_CONNECTION"
-echo "DB_HOST: $DB_HOST"
-echo "DB_PORT: $DB_PORT"
-echo "DB_DATABASE: $DB_DATABASE"
-echo "APP_ENV: $APP_ENV"
 
 echo "Starting services..."
 exec /start.sh
