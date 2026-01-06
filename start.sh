@@ -32,4 +32,6 @@ php artisan view:cache
 php artisan event:cache
 
 echo "Starting services..."
+export NGINX_PORT="${PORT:-8080}"
+echo "Nginx will listen on port ${NGINX_PORT}"
 exec /start.sh
